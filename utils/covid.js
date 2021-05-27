@@ -5,10 +5,6 @@ const covidRequest = (callback) => {
 
     const url = 'https://api.corona-zahlen.org/districts'
 
-    // if (user_input === 'Berlin') {
-    //     user_input = 'Berlin Friedrichshain-Kreuzberg'
-    // }
-
     request({ uri: url, json: true }, (error, response) => {
 
         if (error) {
@@ -34,7 +30,7 @@ const covidRequest = (callback) => {
 const filteredCovidRequest = (city, callback) => {
 
     let user_input = city;
-    const url = 'http://localhost:3000/covid'
+    const url = 'http://localhost:3000/covid' || 'https://quickcidence.herokuapp.com/covid' 
 
     request({ uri: url, json: true }, (error, response) => {
 

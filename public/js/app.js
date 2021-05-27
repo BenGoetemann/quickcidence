@@ -13,7 +13,7 @@ const distance = document.querySelector('#distance');
 const art = document.querySelector('#art');
 const restaurant = document.querySelector('#restaurant');
 
-let url = 'http://localhost:3000/covid'
+let url = '/covid'
 let data123;
 
 fetch(url)
@@ -65,7 +65,7 @@ fetch(url)
               (or any other open lists of autocompleted values:*/
               closeAllLists();
               console.log(inp.value)
-              fetch('http://localhost:3000/covid/request?location=' + inp.value)
+              fetch('/covid/request?location=' + inp.value)
                 .then(response => response.json())
                 .then(data => {
 

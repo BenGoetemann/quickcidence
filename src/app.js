@@ -5,7 +5,7 @@ const {covidRequest, filteredCovidRequest} = require('../utils/covid');
 const chalk = require('chalk');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000
 
 // setting up paths
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -67,5 +67,9 @@ app.get('/help', (req, res) => {
 
 app.listen(port, () => {
     console.log(chalk.cyan('App ist listening on port ' + port))
-    console.log(chalk.yellow.inverse('http://localhost:' + port + '/'))
+
+    if(port === 3000) {
+        console.log(chalk.yellow.inverse('http://localhost:' + port + '/'))
+    }
+    
 })
