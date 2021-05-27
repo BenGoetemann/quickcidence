@@ -1,0 +1,299 @@
+:root {
+    --margin-top: 1rem;
+    --padding: 30px;
+    --button-padding: 8px;
+}
+
+* {
+    margin: 0;
+    font-family: 'Poppins', 'Calibri';
+    text-align: center;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+  .autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+  }
+
+  input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+  }
+
+  input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+  }
+
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+
+  .autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+  }
+
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+  }
+
+body {
+    padding: 8% 0;
+}
+
+.legend {
+    font-size: 0.8rem;
+    padding-top: 5px;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#bacteria-wrapper {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes example {
+    0%   {width: 70px; height: 70px;}
+    25%  {width: 60px; height: 60px;}
+    50%  {width: 65px; height: 70px;}
+    75%  {width: 68px; height: 65px;}
+    100% {width: 70px; height: 70px;}
+  }
+
+  @keyframes example2 {
+    from {width: 70px; height: 70px;}
+    to {width: 100px; height: 100px;}
+  }
+
+#bacteria {
+    content: url('/images/bacteria.png');
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    animation: example 4s;
+    animation-iteration-count: infinite;
+}
+
+#bacteria:hover {
+    animation: example2 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    cursor:not-allowed;
+
+}
+
+#navbar {
+    margin-top: var(--margin-top);
+}
+
+section {
+    margin: 0px auto 0px auto;
+    padding: 0px 5px;
+}
+
+#sign-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto 0px auto;
+    padding: 0 10%;
+}
+
+.card {
+    margin-top: var(--margin-top);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 900px;
+    border-radius: 5px;
+    background-color: rgb(242, 242, 242);
+    padding: var(--padding);
+    display: none;
+}
+
+.card > .picture {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+#mask > .picture > div {
+    content: url('/images/mask.png');
+    width: 100px;
+}
+
+#distance > .picture > div {
+    content: url('/images/distance.png');
+    width: 100px;
+}
+
+
+#art > .picture > div {
+    content: url('/images/art.png');
+    width: 100px;
+}
+
+
+#restaurant > .picture > div {
+    content: url('/images/restaurant.png');
+    width: 100px;
+}
+
+.card > .description {
+    width: 70%;
+    padding-top: var(--padding);
+    padding-right: var(--padding);
+    padding-bottom: var(--padding);
+}
+
+.card > .description > p, h4 {
+    text-align: left;
+}
+
+form {
+    margin-top: var(--margin-top);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin-top: var(--margin-top);
+    border: none;
+    border-radius: 5px;
+    background-color: #45B29D;
+    color: white;
+    padding: var(--button-padding);
+    width: 100px;
+}
+
+button:hover {
+    background-color: #389482;
+    cursor: pointer;
+}
+
+input {
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: rgb(242, 242, 242);
+}
+
+h1 {
+    margin-top: var(--margin-top);
+    color: black;
+}
+
+h3 {
+    margin-top: var(--margin-top);
+    color: black;
+    font-weight: 700;
+}
+
+#results {
+    max-width: 300px;
+    margin: var(--margin-top) auto 0 auto;
+    padding: var(--padding);
+}
+
+#b {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+
+@media (max-width: 1000px) {
+    .card{
+        width: 700px;
+    }
+}
+
+@media (max-width: 800px) {
+    .card{
+        width: 500px;
+    }
+
+    .card > .description {
+        padding-left: var(--padding);
+    }
+}
+
+@media (max-width: 600px) {
+    .card{
+        width: 100%;
+    }
+
+    #sign-section {
+        padding: 0 10%;
+    }
+
+    .card > .description {
+        padding-left: var(--padding);
+    }
+}
+
+
+@media (max-width: 500px) {
+    .card{
+        flex-direction: column;
+        padding-top: var(--padding);
+        padding-bottom: var(--padding);
+    }
+
+    .card > .description {
+        padding: 30px 0 0 0;
+        width: 105%;
+    }
+
+    .card > .description > p, h4 {
+        text-align: center;
+    }
+
+    #sign-section {
+        padding: 0 5%;
+    }
+
+}
