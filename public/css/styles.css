@@ -155,30 +155,35 @@ section {
 
 .card > .picture {
     width: 30%;
+    height: 30%;
     display: flex;
     justify-content: center;
 }
 
 #mask > .picture > div {
     content: url('/images/mask.png');
-    width: 100px;
+    width: 50%;
+    height: 50%;
 }
 
 #distance > .picture > div {
     content: url('/images/distance.png');
-    width: 100px;
+    width: 50%;
+    height: 50%;
 }
 
 
 #art > .picture > div {
     content: url('/images/art.png');
-    width: 100px;
+    width: 50%;
+    height: 50%;
 }
 
 
 #restaurant > .picture > div {
     content: url('/images/restaurant.png');
-    width: 100px;
+    width: 50%;
+    height: 50%;
 }
 
 .card > .description {
