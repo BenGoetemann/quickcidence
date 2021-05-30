@@ -1,6 +1,5 @@
 const showIncidence = (data) => {
 
-
     if (!data.incidence) {
 
         paragraphB.style.color = "red";

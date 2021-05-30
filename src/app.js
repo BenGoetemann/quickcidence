@@ -1,7 +1,7 @@
 const express = require('express');
 var hbs = require('hbs');
 const path = require('path');
-const {covidRequest, filteredCovidRequest} = require('../utils/covid');
+const { covidRequest, filteredCovidRequest, emergencyBrake } = require('../utils/covid');
 const chalk = require('chalk');
 
 const app = express();
@@ -44,20 +44,54 @@ app.get('/covid', (req, res) => {
 app.get('/covid/request', (req, res) => {
 
     filteredCovidRequest(req.query.location, (error, data) => {
-        if(error) {
+
+        if (error) {
             return res.send({
                 title: "Something went wrong..."
             })
         }
-        res.send({
+
+
+        let cityRequest = {
             city: data.city,
             county: data.county,
             incidence: data.incidence,
-            state: data.state
+            state: data.state,
+        }
+
+        emergencyBrake(req.query.location, (error, data) => {
+            let a = cityRequest;
+
+            res.send({
+                city: a.city,
+                county: a.county,
+                incidence: a.incidence,
+                state: a.state,
+                chilled: data
+            })
+
         })
-        
+
+
     })
 
+})
+
+app.get('/emergencyBrake', (req, res) => {
+
+    if (!req.query.location) {
+        return res.send({
+            title: "Please provide a location."
+        })
+    }
+
+    emergencyBrake(req.query.location, (error, data) => {
+        res.send({
+            city: req.query.location,
+            title: "Inzidenz die letzten 5 Tage unter 100?",
+            return: data
+        })
+    })
 })
 
 app.get('/help', (req, res) => {
@@ -69,8 +103,8 @@ app.get('/help', (req, res) => {
 app.listen(port, () => {
     console.log(chalk.cyan('App ist listening on port ' + port))
 
-    if(port === 3000) {
+    if (port === 3000) {
         console.log(chalk.yellow.inverse('http://localhost:' + port + '/'))
     }
-    
+
 })

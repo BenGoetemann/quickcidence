@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "app": "nodemon src/app.js -e js,hbs,css,html",
-    "push": "git push && git push heroku main"
+    "app": "nodemon src/app.js -e js,hbs,css,html"
   },
   "author": "",
   "license": "ISC",
