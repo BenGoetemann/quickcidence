@@ -16,6 +16,44 @@ const restaurant = document.querySelector('#restaurant');
 let url = '/covid'
 let data123;
 
+
+const bw = (data) => {
+  if (data.incidence >= 100) {
+    paragraphB.style.color = "red";
+
+    //Restrictions
+    mask.style.display = "flex";
+    distance.style.display = "flex";
+
+    //Relaxations
+
+  } else if (data.incidence < 100 && data.incidence > 35) {
+    paragraphB.style.color = "orange";
+
+    //Restrictions
+    mask.style.display = "flex";
+    distance.style.display = "flex";
+
+    //Relaxations
+    restaurant.style.display = "flex";
+
+  } else {
+    paragraphB.style.color = "green";
+
+    //Restrictions
+    mask.style.display = "flex";
+
+    //Relaxations
+    restaurant.style.display = "flex";
+    art.style.display = "flex";
+
+  }
+
+  paragraphA.innerText = data.city;
+  paragraphB.innerText = Math.round(data.incidence);
+}
+
+
 fetch(url)
   .then(response => response.json())
   .then(data => {
@@ -69,8 +107,6 @@ fetch(url)
                 .then(data => {
 
                   console.log(data);
-                  relaxations.innerText = 'Relaxations';
-                  restrictions.innerText = 'Restrictions';
                 
                   if (!data.incidence) {
                 
@@ -82,40 +118,78 @@ fetch(url)
                   }
                 
                   else {
+
+                    switch (data.state) {
+                      case "Baden-Württemberg":
+                        console.log("Baden-Württemberg")
+                        break;
+
+                      case "Bayern":
+                        console.log("Bayern")
+                        break;
+
+                      case "Berlin":
+                        console.log("Berlin")
+
+                      case "Brandenburg":
+                        console.log("Brandenburg")
+                      
+                      case "Bremen":
+                        console.log("Bremen")
+                        break;
+
+                      case "Hamburg":
+                        console.log("Hamburg")
+                        break;
+
+                      case "Hessen":
+                        console.log("Hessen")
+                        break;
+
+                      case "Mecklenburg-Vorpommern":
+                        console.log("Mecklenburg-Vorpommern")
+                        break;
+
+                      case "Niedersachsen":
+                        console.log("Niedersachsen")
+                        break;
+
+                      case "Nordrhein-Westfalen":
+                        console.log("Nordrhein-Westfalen")
+                        break;
+                      
+                      case "Rheinland-Pfalz":
+                        console.log("Rheinland-Pfalz")
+                        break;
+
+                      case "Saarland":
+                        console.log("Saarland")
+                        break;
+
+                      case "Sachsen":
+                        console.log("Sachsen")
+                        break;
+                      
+                      case "Sachsen-Anhalt":
+                        console.log("Sachsen-Anhalt");
+                        break;
+
+                      case "Schleswig-Holstein":
+                        console.log("Schleswig-Holstein")
+                        break;
                 
-                    if (data.incidence >= 100) {
-                      paragraphB.style.color = "red";
-                
-                      //Restrictions
-                      mask.style.display = "flex";
-                      distance.style.display = "flex";
-                
-                      //Relaxations
-                
-                    } else if (data.incidence < 100 && data.incidence > 35) {
-                      paragraphB.style.color = "orange";
-                
-                      //Restrictions
-                      mask.style.display = "flex";
-                      distance.style.display = "flex";
-                
-                      //Relaxations
-                      restaurant.style.display = "flex";
-                
-                    } else {
-                      paragraphB.style.color = "green";
-                
-                      //Restrictions
-                      mask.style.display = "flex";
-                
-                      //Relaxations
-                      restaurant.style.display = "flex";
-                      art.style.display = "flex";
-                
+                      case "Thüringen":
+                        console.log("Thüringen")
+                        break;
+
+                      default:
+                        console.log("no state provided")
+                        break;
                     }
+
+                    relaxations.innerText = 'Relaxations';
+                    restrictions.innerText = 'Restrictions';
                 
-                    paragraphA.innerText = data.city;
-                    paragraphB.innerText = Math.round(data.incidence);
                   }
 
                 })

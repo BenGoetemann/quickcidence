@@ -52,7 +52,8 @@ app.get('/covid/request', (req, res) => {
         res.send({
             city: data.city,
             county: data.county,
-            incidence: data.incidence
+            incidence: data.incidence,
+            state: data.state
         })
         
     })
