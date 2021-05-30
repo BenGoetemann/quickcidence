@@ -32,7 +32,6 @@ const filteredCovidRequest = (city, callback) => {
 
     let user_input = city;
     const url = 'https://quickcidence.herokuapp.com/covid' 
-    // const url = 'http://localhost:3000/covid' 
 
     request({ uri: url, json: true }, (error, response) => {
 
@@ -50,7 +49,7 @@ const filteredCovidRequest = (city, callback) => {
                         city: a.city,
                         county: a.county,
                         incidence: a.incidence,
-                        state: e.state
+                        state: a.state
                     })
                 }
             })
