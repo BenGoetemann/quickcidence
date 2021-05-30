@@ -1,58 +1,5 @@
-const form = document.querySelector('form');
-const input = document.querySelector('input');
-const button = document.querySelector('button');
-const paragraphA = document.querySelector('#a');
-const paragraphB = document.querySelector('#b');
-const signSection = document.querySelector('#sign-section')
-const restrictions = document.querySelector('#restrictions')
-const relaxations = document.querySelector('#relaxations')
-
-// signs
-const mask = document.querySelector('#mask');
-const distance = document.querySelector('#distance');
-const art = document.querySelector('#art');
-const restaurant = document.querySelector('#restaurant');
-
 let url = '/covid'
 let data123;
-
-
-const bw = (data) => {
-  if (data.incidence >= 100) {
-    paragraphB.style.color = "red";
-
-    //Restrictions
-    mask.style.display = "flex";
-    distance.style.display = "flex";
-
-    //Relaxations
-
-  } else if (data.incidence < 100 && data.incidence > 35) {
-    paragraphB.style.color = "orange";
-
-    //Restrictions
-    mask.style.display = "flex";
-    distance.style.display = "flex";
-
-    //Relaxations
-    restaurant.style.display = "flex";
-
-  } else {
-    paragraphB.style.color = "green";
-
-    //Restrictions
-    mask.style.display = "flex";
-
-    //Relaxations
-    restaurant.style.display = "flex";
-    art.style.display = "flex";
-
-  }
-
-  paragraphA.innerText = data.city;
-  paragraphB.innerText = Math.round(data.incidence);
-}
-
 
 fetch(url)
   .then(response => response.json())
@@ -107,21 +54,33 @@ fetch(url)
                 .then(data => {
 
                   console.log(data);
-                
+
                   if (!data.incidence) {
-                
+
                     paragraphB.style.color = "red";
-                
+
                     paragraphA.innerText = data.city;
                     paragraphB.innerText = data.title;
-                
+
                   }
-                
+
                   else {
+
+                    if (data.incidence >= 100) {
+                      paragraphB.style.color = "red";
+                    } else if (data.incidence < 100 && data.incidence > 35) {
+                      paragraphB.style.color = "orange";
+                    } else {
+                      paragraphB.style.color = "green";
+                    }
+
+                    paragraphA.innerText = data.city;
+                    paragraphB.innerText = Math.round(data.incidence);
 
                     switch (data.state) {
                       case "Baden-Württemberg":
                         console.log("Baden-Württemberg")
+                        bw(data);
                         break;
 
                       case "Bayern":
@@ -129,11 +88,13 @@ fetch(url)
                         break;
 
                       case "Berlin":
-                        console.log("Berlin")
+                        berlin(data)
+                        break;
 
                       case "Brandenburg":
                         console.log("Brandenburg")
-                      
+                        break;
+
                       case "Bremen":
                         console.log("Bremen")
                         break;
@@ -157,7 +118,7 @@ fetch(url)
                       case "Nordrhein-Westfalen":
                         console.log("Nordrhein-Westfalen")
                         break;
-                      
+
                       case "Rheinland-Pfalz":
                         console.log("Rheinland-Pfalz")
                         break;
@@ -169,7 +130,7 @@ fetch(url)
                       case "Sachsen":
                         console.log("Sachsen")
                         break;
-                      
+
                       case "Sachsen-Anhalt":
                         console.log("Sachsen-Anhalt");
                         break;
@@ -177,7 +138,7 @@ fetch(url)
                       case "Schleswig-Holstein":
                         console.log("Schleswig-Holstein")
                         break;
-                
+
                       case "Thüringen":
                         console.log("Thüringen")
                         break;
@@ -189,15 +150,15 @@ fetch(url)
 
                     relaxations.innerText = 'Relaxations';
                     restrictions.innerText = 'Restrictions';
-                
+
                   }
 
                 })
-                });
-              a.appendChild(b);
-            }
+            });
+            a.appendChild(b);
+          }
         }
-        });
+      });
       /*execute a function presses a key on the keyboard:*/
       inp.addEventListener("keydown", function (e) {
         var x = document.getElementById(this.id + "autocomplete-list");
