@@ -99,7 +99,7 @@ const covidRequest = (callback) => {
 const filteredCovidRequest = (city, callback) => {
 
     const url = 'https://quickcidence.herokuapp.com/covid'
-    const url2 = 'http://localhost:3000/emergencyBrake?location=' + city
+    const url2 = 'https://quickcidence.herokuapp.com/emergencyBrake?location=' + city
 
     request({ uri: url, json: true }, (error, response) => {
 
