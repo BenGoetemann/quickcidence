@@ -2,7 +2,7 @@ const request = require('request');
 
 const emergencyBrake = (city, callback) => {
 
-    const url = 'https://api.corona-zahlen.org/districts/history/incidence/5'
+    const url = 'https://api.corona-zahlen.org/districts/history/incidence/10'
 
     request({ uri: url, json: true }, (error, response) => {
 
@@ -31,18 +31,39 @@ const emergencyBrake = (city, callback) => {
                 }
             })
 
-            const isIncidencesStable = incidenceValues.find(element => element === 1);
+            function check(array) {
 
-            let result;
+                const arr = array;
+                const a = arr[9]
+                const b = arr[8]
+                const c = arr[7]
+                const d = arr[6]
+                const e = arr[5]
+                const f = arr[4]
+                const g = arr[3]
 
-            if (isIncidencesStable === 1) {
-                result = false
-            } else {
-                result = true
+                if (a === 1 && b === 1 && c === 1) {
+                    return false
+                } else if (b === 1 && c === 1 && d === 1){
+                    return false
+                } else if (c === 1 && d === 1 && e === 1){
+                    return false
+                } else if (d === 1 && e === 1 && f === 1) {
+                    return false
+                } else if (e === 1 && f === 1 && g === 1) {
+                    return false
+                } else {
+                    return true
+                }
+
             }
 
+            console.log(incidenceValues)
+            console.log(check(incidenceValues))
+        
+            const isIncidencesStable = check(incidenceValues);
 
-            callback(undefined, result)
+            callback(undefined, isIncidencesStable)
         }
     })
 

@@ -51,7 +51,6 @@ app.get('/covid/request', (req, res) => {
             })
         }
 
-
         let cityRequest = {
             city: data.city,
             county: data.county,
