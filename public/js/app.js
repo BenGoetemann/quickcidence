@@ -64,7 +64,6 @@ fetch(url)
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
-              console.log(inp.value)
               fetch('/covid/request?location=' + inp.value)
                 .then(response => response.json())
                 .then(data => {
