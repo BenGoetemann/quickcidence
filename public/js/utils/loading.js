@@ -10,5 +10,6 @@ const loading = () => {
     distance.style.display = "none"
     art.style.display = "none"
     restaurant.style.display = "none"
+    infoBox.style.display = "none"
 
 }

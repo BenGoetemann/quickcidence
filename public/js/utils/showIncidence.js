@@ -1,5 +1,12 @@
 const showIncidence = (data) => {
 
+    let tMinusArray = tminus
+
+    for (let index = 0; index < tMinusArray.length; index++) {
+        tminus[index].innerHTML = data.last10days[index]
+    }
+    
+
     if (!data.incidence) {
 
         paragraphB.style.color = "red";
@@ -11,6 +18,8 @@ const showIncidence = (data) => {
 
     else {
 
+        console.log(data.last10days)
+
         if (data.incidence >= 100) {
             paragraphB.style.color = "red";
         } else if (data.incidence < 100 && data.incidence > 35) {
@@ -21,6 +30,7 @@ const showIncidence = (data) => {
 
         paragraphA.innerText = data.city;
         paragraphB.innerText = Math.round(data.incidence);
+        paragraphD.innerText = "Die 7 Tage Inzidenz der letzten 10 Tage:"
 
         switch (data.state) {
             case "Baden-Württemberg":

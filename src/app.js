@@ -58,19 +58,90 @@ app.get('/covid/request', (req, res) => {
             state: data.state,
         }
 
-        emergencyBrake(req.query.location, (error, data) => {
-            let a = cityRequest;
+            emergencyBrake(req.query.location, (error, data) => {
+                let a = cityRequest
 
-            res.send({
-                city: a.city,
-                county: a.county,
-                incidence: a.incidence,
-                state: a.state,
-                chilled: data
+                switch (a.state) {
+                    case "Baden-Württemberg":
+                        console.log("Baden-Württemberg")
+                        res.send({
+                            city: a.city,
+                            county: a.county,
+                            incidence: a.incidence,
+                            state: a.state,
+                            isUnder100: data.isUnder100,
+                            isUnder50: data.isUnder50,
+                            last10days: data.last10days
+                        })
+
+                        break;
+        
+                    case "Bayern":
+                        console.log("Bayern")
+                        break;
+        
+                    case "Berlin":
+                        berlin(data)
+                        break;
+        
+                    case "Brandenburg":
+                        console.log("Brandenburg")
+                        break;
+        
+                    case "Bremen":
+                        console.log("Bremen")
+                        break;
+        
+                    case "Hamburg":
+                        console.log("Hamburg")
+                        break;
+        
+                    case "Hessen":
+                        console.log("Hessen")
+                        break;
+        
+                    case "Mecklenburg-Vorpommern":
+                        console.log("Mecklenburg-Vorpommern")
+                        break;
+        
+                    case "Niedersachsen":
+                        console.log("Niedersachsen")
+                        break;
+        
+                    case "Nordrhein-Westfalen":
+                        console.log("Nordrhein-Westfalen")
+                        break;
+        
+                    case "Rheinland-Pfalz":
+                        console.log("Rheinland-Pfalz")
+                        break;
+        
+                    case "Saarland":
+                        console.log("Saarland")
+                        break;
+        
+                    case "Sachsen":
+                        console.log("Sachsen")
+                        break;
+        
+                    case "Sachsen-Anhalt":
+                        console.log("Sachsen-Anhalt");
+                        break;
+        
+                    case "Schleswig-Holstein":
+                        console.log("Schleswig-Holstein")
+                        break;
+        
+                    case "Thüringen":
+                        console.log("Thüringen")
+                        break;
+        
+                    default:
+                        console.log("no state provided")
+                        break;
+                }
+
             })
-
-        })
-
 
     })
 

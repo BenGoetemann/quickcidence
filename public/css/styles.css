@@ -5,6 +5,10 @@
     --margin-top: 1rem;
     --padding: 30px;
     --button-padding: 8px;
+    --border-radius: 5px;
+    --color-main: #45B29D;
+    --color-main-hover: #389482;
+    --color-card-bg: rgb(242, 242, 242)
 }
 
 * {
@@ -150,8 +154,8 @@ section {
     align-items: center;
     justify-content: center;
     width: 900px;
-    border-radius: 5px;
-    background-color: rgb(242, 242, 242);
+    border-radius: var(--border-radius);
+    background-color: var(--color-card-bg);
     padding: var(--padding);
     display: none;
 }
@@ -211,23 +215,23 @@ form {
 button {
     margin-top: var(--margin-top);
     border: none;
-    border-radius: 5px;
-    background-color: #45B29D;
+    border-radius: var(--border-radius);
+    background-color: var(--color-main);
     color: white;
     padding: var(--button-padding);
     width: 100px;
 }
 
 button:hover {
-    background-color: #389482;
+    background-color: var(--color-main-hover);
     cursor: pointer;
 }
 
 input {
     height: 30px;
     border: 1px solid grey;
-    border-radius: 5px;
-    background-color: rgb(242, 242, 242);
+    border-radius: var(--border-radius);
+    background-color: var(--color-card-bg);
 }
 
 h1 {
@@ -242,14 +246,53 @@ h3 {
 }
 
 #results {
-    max-width: 300px;
+    max-width: 500px;
+    min-width: 300px;
     margin: var(--margin-top) auto 0 auto;
     padding: var(--padding);
 }
 
+#last10days {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#last10days > p {
+    font-weight: 900;
+    margin: 5px;
+}
+
+
 #b {
     font-weight: bold;
     font-size: 3rem;
+    margin: auto 0 auto 0;
+}
+
+#c {
+    text-align: center;
+    max-width: 20ch;
+}
+
+#d {
+    font-size: .8rem;
+    margin-top: var(--margin-top);
+    text-decoration: underline;
+}
+
+#infobox {
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: var(--margin-top);
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--padding)
 }
 
 

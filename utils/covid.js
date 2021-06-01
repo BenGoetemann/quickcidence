@@ -13,7 +13,9 @@ const emergencyBrake = (city, callback) => {
 
             // console.log(values)
 
-            let incidenceValues = [];
+            let incidenceValues100 = [];
+            let incidenceValues50 = [];
+            let last10days = [];
             let success;
 
             values.forEach(a => {
@@ -21,17 +23,25 @@ const emergencyBrake = (city, callback) => {
                     success++
                     a.history.forEach(b => {
 
+                        last10days.push(Math.round(b.weekIncidence))
+
                         if (b.weekIncidence >= 100) {
-                            incidenceValues.push(1)
+                            incidenceValues100.push(1)
                         } else {
-                            incidenceValues.push(0)
+                            incidenceValues100.push(0)
+                        } 
+                        
+                        if (b.weekIncidence >= 50) {
+                            incidenceValues50.push(1) 
+                        } else {
+                            incidenceValues50.push(0)
                         }
                     })
 
                 }
             })
 
-            function check(array) {
+            function check100(array) {
 
                 const arr = array;
                 const a = arr[9]
@@ -58,12 +68,46 @@ const emergencyBrake = (city, callback) => {
 
             }
 
-            console.log(incidenceValues)
-            console.log(check(incidenceValues))
-        
-            const isIncidencesStable = check(incidenceValues);
+            function check50(array) {
 
-            callback(undefined, isIncidencesStable)
+                const arr = array;
+                const a = arr[9]
+                const b = arr[8]
+                const c = arr[7]
+                const d = arr[6]
+                const e = arr[5]
+                const f = arr[4]
+                const g = arr[3]
+
+                if (a === 1 && b === 1 && c === 1) {
+                    return false
+                } else if (b === 1 && c === 1 && d === 1){
+                    return false
+                } else if (c === 1 && d === 1 && e === 1){
+                    return false
+                } else if (d === 1 && e === 1 && f === 1) {
+                    return false
+                } else if (e === 1 && f === 1 && g === 1) {
+                    return false
+                } else {
+                    return true
+                }
+
+            }
+
+            console.log("Under 100 " + incidenceValues100)
+            console.log(check100(incidenceValues100))
+            console.log("Under 50 " + incidenceValues50)
+            console.log(check100(incidenceValues50))
+            
+
+            callback(undefined, {
+            
+                isUnder100: check100(incidenceValues100),
+                isUnder50: check50(incidenceValues50),
+                last10days: last10days
+
+            })
         }
     })
 

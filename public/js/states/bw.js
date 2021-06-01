@@ -1,44 +1,54 @@
+// let date = new Date();
+// const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+// let currentDate = date.toLocaleDateString('de-DE', options)
+
+//Restrictions
+//mask.style.display = "flex";
+
+//Relaxations
+
 const bw = (data) => {
 
-  if (data.incidence >= 100) {
-    paragraphB.style.color = "red";
+  infoBox.style.display = "flex";
 
-    //Restrictions
-    mask.style.display = "flex";
-    distance.style.display = "flex";
+  if (data.incidence >= 100 && !data.isUnder100) // Bundesnotbremse greift
+  
+    {
+      paragraphB.style.color = "red"
+      paragraphC.innerText = "Bundesnotbremse greift"
+    } 
+  
+  else if (data.incidence >= 100 && data.isUnder100) // Bundesnotbremse greift noch nicht
+  
+    {
+      paragraphB.style.color = "red"
+      paragraphC.innerText = "Bundesnotbremse greift noch nicht"
+    } 
+  
+  else if (data.isUnder100) // Bundesnotbremse greift nicht mehr
+  
+    {
 
-    //Relaxations
+      if (data.incidence < 100 && data.incidence >= 50) { // BW 50er Marke noch greift noch nicht
+        paragraphB.style.color = "orange";
+        paragraphC.innerText = "Lockerungen bei Inzidenz unter 50 greifen noch nicht"
 
-  } else if (data.chilled === true) {
+      } else if (data.incidence < 50 && !data.isUnder50) { // BW 50er Marke noch greift noch nicht
+        paragraphB.style.color = "orange";
+        paragraphC.innerText = "Lockerungen bei Inzidenz unter 50 greifen noch nicht"
 
-    console.log("pretty chilly")
+      } else { // // BW 50er Marke greift if (data.incidence < 50 && data.isUnder50)
+        paragraphB.style.color = "green";
+        paragraphC.innerText = "Lockerungen bei Inzidenz unter 50 greifen"
 
-    if (data.incidence < 100 && data.incidence > 35) {
-      paragraphB.style.color = "orange";
+      } 
 
-      //Restrictions
-      mask.style.display = "flex";
-      distance.style.display = "flex";
-
-      //Relaxations
-      restaurant.style.display = "flex";
-
-    } else {
-      paragraphB.style.color = "green";
-
-      //Restrictions
-      mask.style.display = "flex";
-
-      //Relaxations
-      restaurant.style.display = "flex";
-      art.style.display = "flex";
-
+    } 
+  
+  else 
+  
+    {
+      paragraphC.innerText = "Unbekannter Fehler"
     }
 
-  } else {
-
-    console.log("not chilly")
-
-
-  }
 }
