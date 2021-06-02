@@ -45,7 +45,7 @@ const showIncidence = (data) => {
                 break;
 
             case "Berlin":
-                berlin(data)
+                //berlin(data)
                 break;
 
             case "Brandenburg":

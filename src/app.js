@@ -81,7 +81,6 @@ app.get('/covid/request', (req, res) => {
                         break;
         
                     case "Berlin":
-                        //berlin(data)
                         break;
         
                     case "Brandenburg":
