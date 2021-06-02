@@ -11,12 +11,14 @@ const showIncidence = (data) => {
 
         paragraphB.style.color = "red";
 
-        paragraphA.innerText = data.city;
-        paragraphB.innerText = data.title;
+        paragraphA.innerText = "Someting went wrong";
+        paragraphB.innerText = "please try again";
 
     }
 
     else {
+
+        infoBox.style.display = "flex";
 
         console.log(data.last10days)
 

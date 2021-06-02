@@ -154,6 +154,7 @@ section {
     align-items: center;
     justify-content: center;
     width: 900px;
+    min-height: 270px;
     border-radius: var(--border-radius);
     background-color: var(--color-card-bg);
     padding: var(--padding);
@@ -167,6 +168,37 @@ section {
     justify-content: center;
 }
 
+#brake-close-contact-services > .picture > div {
+    content: url('/images/brake_close_contact_services.png');
+    width: 50%;
+    height: 50%;
+}
+
+#brake-curfew > .picture > div {
+    content: url('/images/brake_curfew.png');
+    width: 50%;
+    height: 50%;
+}
+
+#brake-contacts > .picture > div {
+    content: url('/images/brake_contacts.png');
+    width: 50%;
+    height: 50%;
+}
+
+#brake-culture > .picture > div {
+    content: url('/images/art.png');
+    width: 50%;
+    height: 50%;
+}
+
+#brake-school > .picture > div {
+    content: url('/images/school.png');
+    width: 50%;
+    height: 50%;
+}
+
+
 #mask > .picture > div {
     content: url('/images/mask.png');
     width: 50%;
@@ -179,16 +211,117 @@ section {
     height: 50%;
 }
 
+#groceries > .picture > div {
+    content: url('/images/groceries.png');
+    width: 50%;
+    height: 50%;
+}
 
-#art > .picture > div {
-    content: url('/images/art.png');
+#meet100 > .picture > div {
+    content: url('/images/brake_contacts.png');
+    width: 50%;
+    height: 50%;
+}
+
+#kita100 > .picture > div {
+    content: url('/images/kindergarten.png');
+    width: 50%;
+    height: 50%;
+}
+
+#school100 > .picture > div {
+    content: url('/images/school.png');
+    width: 50%;
+    height: 50%;
+}
+
+#dance-school100 > .picture > div {
+    content: url('/images/ballett.png');
+    width: 50%;
+    height: 50%;
+}
+
+#license100 > .picture > div {
+    content: url('/images/car.png');
+    width: 50%;
+    height: 50%;
+}
+
+#close-contact-services100 > .picture > div {
+    content: url('/images/brake_close_contact_services.png');
+    width: 50%;
+    height: 50%;
+}
+
+#restaurants100 > .picture > div {
+    content: url('/images/food_delivery.png');
     width: 50%;
     height: 50%;
 }
 
 
-#restaurant > .picture > div {
+#diy-market100 > .picture > div {
+    content: url('/images/hammer.png');
+    width: 50%;
+    height: 50%;
+}
+
+#click-and-meet100 > .picture > div {
+    content: url('/images/shopping.png');
+    width: 50%;
+    height: 50%;
+}
+
+#university100 > .picture > div {
+    content: url('/images/university.png');
+    width: 50%;
+    height: 50%;
+}
+
+#fitness100 > .picture > div {
+    content: url('/images/fitness.png');
+    width: 50%;
+    height: 50%;
+}
+
+#fandom100 > .picture > div {
+    content: url('/images/fandom.png');
+    width: 50%;
+    height: 50%;
+}
+
+#religion100 > .picture > div {
+    content: url('/images/religion.png');
+    width: 50%;
+    height: 50%;
+}
+
+#culture100 > .picture > div {
+    content: url('/images/art.png');
+    width: 50%;
+    height: 50%;
+}
+
+#free-time100 > .picture > div {
+    content: url('/images/swimming.png');
+    width: 50%;
+    height: 50%;
+}
+
+#restaurants100-2 > .picture > div {
     content: url('/images/restaurant.png');
+    width: 50%;
+    height: 50%;
+}
+
+#tourism100 > .picture > div {
+    content: url('/images/tourism.png');
+    width: 50%;
+    height: 50%;
+}
+
+#petcare100 > .picture > div {
+    content: url('/images/pet.png');
     width: 50%;
     height: 50%;
 }
@@ -200,7 +333,7 @@ section {
     padding-bottom: var(--padding);
 }
 
-.card > .description > p, h4 {
+.card > .description > p, h4, li {
     text-align: left;
 }
 

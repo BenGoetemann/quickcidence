@@ -1,32 +1,32 @@
-const berlin = (data) => {
+// const berlin = (data) => {
 
-    if (data.incidence >= 100) {
-        paragraphB.style.color = "red";
+//     if (data.incidence >= 100) {
+//         paragraphB.style.color = "red";
 
-        //Restrictions
+//         //Restrictions
 
-        //Relaxations
+//         //Relaxations
 
-    } else if (data.chilled === true) { //wenn bundesnotbremse nicht mehr aktiv ist
+//     } else if (data.chilled === true) { //wenn bundesnotbremse nicht mehr aktiv ist
 
-        if (null) { // rules
-            paragraphB.style.color = "orange";
+//         if (null) { // rules
+//             paragraphB.style.color = "orange";
 
-            //Restrictions
+//             //Restrictions
 
-            //Relaxations
+//             //Relaxations
 
-        } else {
-            paragraphB.style.color = "green";
+//         } else {
+//             paragraphB.style.color = "green";
 
-            //Restrictions
+//             //Restrictions
 
-            //Relaxations
+//             //Relaxations
 
-        }
+//         }
 
-    } else {
+//     } else {
 
-    }
-}
+//     }
+// }
 

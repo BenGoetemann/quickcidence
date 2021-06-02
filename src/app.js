@@ -61,19 +61,19 @@ app.get('/covid/request', (req, res) => {
             emergencyBrake(req.query.location, (error, data) => {
                 let a = cityRequest
 
+                res.send({
+                    city: a.city,
+                    county: a.county,
+                    incidence: a.incidence,
+                    state: a.state,
+                    isUnder100: data.isUnder100,
+                    isUnder50: data.isUnder50,
+                    last10days: data.last10days
+                })
+
                 switch (a.state) {
                     case "Baden-Württemberg":
                         console.log("Baden-Württemberg")
-                        res.send({
-                            city: a.city,
-                            county: a.county,
-                            incidence: a.incidence,
-                            state: a.state,
-                            isUnder100: data.isUnder100,
-                            isUnder50: data.isUnder50,
-                            last10days: data.last10days
-                        })
-
                         break;
         
                     case "Bayern":
@@ -81,7 +81,7 @@ app.get('/covid/request', (req, res) => {
                         break;
         
                     case "Berlin":
-                        berlin(data)
+                        //berlin(data)
                         break;
         
                     case "Brandenburg":

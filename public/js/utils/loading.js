@@ -5,11 +5,10 @@ const loading = () => {
     relaxations.innerText = ""
     restrictions.innerText = ""
 
+    cards.forEach(card => {
+        card.style.display = "none"
+    })
 
-    mask.style.display = "none"
-    distance.style.display = "none"
-    art.style.display = "none"
-    restaurant.style.display = "none"
     infoBox.style.display = "none"
 
 }
